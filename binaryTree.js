@@ -91,9 +91,42 @@ class BinaryTree{
         let rightSum = this.sumOfLeaf(root.right);
         return leftSum + rightSum;
     }
+    height(root){
+        if(!root) return 0;
+        
+        let right = this.height(root.right);
+        let left = this.height(root.left);
+        let myHeight = Math.max(right,left)+1;
+        
+        return myHeight;
+    }
+    diaMeter(root){
+        if(!root) return 0;
+        let dl = this.diaMeter(root.left);
+        let dr = this.diaMeter(root.right);
+        let droot = (this.height(root.left) + this.height(root.right)+1);
+        return Math.max(dl, dr, droot);
+    }
+    diameter2(root){
+        if(!root){
+            return {
+                myHeight: 0,
+                diaMeter: 0
+            }
+        }
+        let dl = this.diameter2(root.left);
+        let dr = this.diameter2(root.right);
+        let droot = dl.myHeight + dr.myHeight + 1;
+        let diaMeter = Math.max(dl.diaMeter, dr.diaMeter, droot);
+        let myHeight = Math.max(dl.myHeight, dr.myHeight) + 1;
+        return {
+            myHeight,
+            diaMeter
+        }
+    }
 }
 let bt = new BinaryTree();
 let values = [1, 2, 4, -1, -1, 5, -1, -1, 3, 6, -1, -1, -1];
 let root = bt.buildTree(values);
-bt.levelOrder(root);
-// console.log(bt.sumOfLeaf(root))
+// bt.levelOrder(root);
+console.log(bt.diameter2(root))
