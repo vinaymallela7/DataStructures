@@ -26,3 +26,4 @@ function partition(arr, l, h){
     return j;
     
 }
+//[45, 12, 9, 23, 3, 10, 3]
