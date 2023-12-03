@@ -23,3 +23,26 @@ function subset(arr, index, temp){
     }
 }
 subset([1, 2, 3], 0, [])
+
+
+/*
+   
+
+    function powerset(str){
+        let len = 1 << str.length;
+        
+        for(let i = 0; i < len; i++){
+            let curr = "";
+            for(let j = 0; j < str.length; j++){
+                // check char index set or not
+                if(i & ( 1 << j)){
+                    curr += str[j];
+                }
+            }
+            console.log(curr);
+        }
+    }
+
+    let value = "abc";
+    powerset(value);
+*/
