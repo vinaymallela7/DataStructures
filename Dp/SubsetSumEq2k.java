@@ -4,7 +4,7 @@
 class SubsetSumEq2k {
     public static void main(String[] args) {
         int[] values = {1, 2, 3, 3};
-        int k = 6;
+        int k = 6
         int[][] dp = new int[values.length + 1][k+1];
 
         for(int i = 0; i < dp.length; i++){
